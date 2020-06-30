@@ -238,10 +238,9 @@ class WebServer:
             await ws.send_str(self.jd(self.msg_push_update()))
 
     async def publish_update(self, data: dto.Update):
-        res = None
         try:
             await self.publish_update_(data)
         except Exception as e:
             logger.exception("Exception during publishing update")
             raise e
-        return res
+        return None

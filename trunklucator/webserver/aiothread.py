@@ -26,8 +26,7 @@ class AioThread(Thread):
         return self._loop
 
     def add_task(self, coro):
-        fut = asyncio.run_coroutine_threadsafe(coro, loop=self._loop)
-        return fut
+        return asyncio.run_coroutine_threadsafe(coro, loop=self._loop)
 
     def finalize(self):
         if self.server:
